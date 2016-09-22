@@ -1,0 +1,8 @@
+- name: Ensuring httpd is installed
+  yum: name=httpd state=installed
+
+- name: Ensuring httpd service is started
+  service: name=httpd state=started enabled=true
+
+- include: ../../iptables/tasks/custom-policy.yml iptables_policy_name=httpd iptables_port=80
+
